@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Stuff</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    </head>
+
+    <body>
+        <h1>Result</h1>
+        <div id="result"></div>
+        <p id="status"></p>
+        <div id="presult"></div>
+        <p id="pstatus"></p>
+        <button onclick='getresult(); getpost();' id="clickbutton">Click Me</button>
+
+    <script>
+        function getresult(){
+            $.get('http://127.0.0.1:5000/', function(data, result){
+                let str = JSON.stringify(data);
+                let msg = JSON.parse(str);
+                console.log(msg.message);
+                //msg = JSON.parse(data);
+                //console.log(msg.message);
+                $('#result').html(msg.message);
+                $('#status').html(result);
+
+            })
+        }
+
+        function getpost(){
+            $.post('http://127.0.0.1:5000/', function(data, result){
+                let pstr = JSON.stringify(data);
+                let pmsg = JSON.parse(pstr);
+                console.log(pmsg.message);
+                //msg = JSON.parse(data);
+                //console.log(msg.message);
+                $('#presult').html(pmsg.message);
+                $('#pstatus').html(result);
+            })
+        }
+    </script>
+    </body>
+</html>
