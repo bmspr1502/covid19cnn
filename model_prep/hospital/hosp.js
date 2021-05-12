@@ -15,7 +15,7 @@ $(document).ready(function(){
               cache: false,
               success: function(response){
                 if(response!=0){
-                    alert(response);
+                    //alert(response);
                     $("#img").attr("src",'prediction_api/train_img/'+response); 
                     predict(response);
                     
@@ -42,7 +42,7 @@ function predict(path){
                   console.log(data);
                   let msg = JSON.parse(JSON.stringify(data));
                   $('#img_name').val(msg.name);
-                  $('#percentage').val(parseFloat(msg.percentage));
+                  $('#percentage').val(parseFloat(msg.percentage)*100);
                   $('#scan_result').val(msg.result);
                   return data;
                   /*

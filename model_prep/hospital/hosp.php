@@ -84,13 +84,14 @@ input[type=submit]:hover {
 </style>
 <script>
 $(document).ready(function(){
-      $("#addpatients").on("submit", function(event){
+      $("#addpatient").on("submit", function(event){
             event.preventDefault();
 
             var formValues= $(this).serialize();
             console.log(formValues);
 
             $.post("pat_details.php", formValues, function(data){
+                alert(data);
                 // Display the returned data in browser
                 $("#result").html(data);
             });
@@ -135,6 +136,7 @@ $(document).ready(function(){
     </div>
   </nav>
   <div class="containerss">
+  <div id="result"></div>
   <form action="" id="addpatient" method="POST" enctype="multipart/form-data">
     <div class="row">
       <div class="col-25">
@@ -180,18 +182,17 @@ $(document).ready(function(){
         <label for="ha">NEGATIVE</label><br>
       </div>
     </div>
-    <form action=""  method="post" enctype="multipart/form-data" id="predict">
+   
       <div class="row">
-      <div class="col-25">
-        <label>CHOOSE IMAGE</label>
+        <div class="col-25">
+          <label>CT SCAN IMAGE</label>
+        </div>
+        <div class="col-75">
+          <input type="file" name="image" id="image">
+          <button type="button" id='upimg' class="btn btn-danger">Predict</button>
+        </div>
       </div>
-      <div class="col-75">
-        <input type="file" name="image" id="image">
-        <button type="button" id='upimg' class="btn btn-danger">Predict</button>
-      </div>
-      </div>
-    </form>
-    <div class="row">
+      <div class="row">
       <div class="col-25">
         <label for="pri">PREDICTED RESULT</label>
       </div>
@@ -212,6 +213,8 @@ $(document).ready(function(){
         <input type="text" id="percentage" name="percentage" value="-1">
       </div>
     </div>
+    
+    
 <!--
     <div class="row">
       <div class="col-25">
@@ -245,11 +248,11 @@ $(document).ready(function(){
     <div class="row">
     <div class="col-75">
      <div style="text-align:center" >
-     <button type="submit" class="btn btn-danger">Submit</button>
+     <button type="submit" name='submit' id='submit' class="btn btn-danger">Submit</button>
     </div>
     </div>
 </div>
-      <div id="result"></div>
+      
 </form>
 </div>
 <br><br><br>

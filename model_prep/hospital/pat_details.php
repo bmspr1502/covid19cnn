@@ -1,6 +1,7 @@
 <?php
 include('db.php');
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    //print_r($_POST);
     $pat_name = $con->real_escape_string($_POST['pat_name']);
     $pat_phone = $con->real_escape_string($_POST['pat_phone']);
     $pat_address = $con->real_escape_string($_POST['pat_address']);
