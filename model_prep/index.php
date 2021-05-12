@@ -13,6 +13,32 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script>
+    $(document).ready(function(){
+      $("#patientform").on("submit", function(event){
+            event.preventDefault();
+
+            var formValues= $(this).serialize();
+            console.log(formValues);
+
+            $.post("pat_login.php", formValues, function(data){
+                // Display the returned data in browser
+                $("#result1").html(data);
+            });
+        });
+        $("#hospitalform").on("submit", function(event){
+            event.preventDefault();
+
+            var formValues= $(this).serialize();
+            console.log(formValues);
+
+            $.post("hosp_login.php", formValues, function(data){
+                // Display the returned data in browser
+                $("#result2").html(data);
+            });
+        });
+    });
+    </script>
 </head>
 
 <body>
@@ -21,6 +47,7 @@
     <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#patient">Patient login</button>
     <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#predictimage">Predict</button>
 </div>
+
 <div class="modal fade" id="predictimage" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -43,6 +70,7 @@
     </div>
   </div>
 </div>
+
 <div class="modal fade" id="patient" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -56,10 +84,11 @@
         Please Login to see your result
       </div>
       <div class="modal-footer">
-        <form action="pat_login.php" method="post">
+        <form action="pat_login.php" method="post" id="patientform">
             <input type="text" name="pname" class = "pat_phone" placeholder = "Name">
             <input type="text" name="phone" class = "pat_phone" placeholder = "Phone">
-            <button type="submit" class="btn btn-danger" name = "predict">Login</button>
+            <div id="result1" style="color:red;"></div>
+            <button type="submit" class="btn btn-danger">Login</button>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         </form>
       </div>
@@ -76,13 +105,14 @@
         </button>
       </div>
       <div class="modal-body">
-        Please Login to see your result
+        Hospital login
       </div>
       <div class="modal-footer">
-        <form action="hosp_login.php" method="post">
-            <input type="text" name="pname" class = "pat_phone" placeholder = "Name">
-            <input type="text" name="phone" class = "pat_phone" placeholder = "Phone">
-            <button type="submit" class="btn btn-danger" name = "predict">Login</button>
+        <form action="hosp_login.php" id="hospitalform" method="post">
+            <input type="text" name="hosp_id" class = "pat_phone" placeholder = "Hospital ID">
+            <!--<input type="text" name="phone" class = "pat_phone" placeholder = "Phone">-->
+            <div id="result2" style="color:red;"></div>
+            <button type="submit" class="btn btn-danger">Login</button>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         </form>
       </div>
