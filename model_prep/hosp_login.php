@@ -6,7 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if($id == "HOSP@123")
     {
         echo "Welcome";
-        echo "<script>window.location.href='hospital.php'</script>";
+        echo "<script>window.location.href='hospital/hosp.php'</script>";
     }
     else{
         echo "Incorrect hospital ID";
