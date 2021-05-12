@@ -1,9 +1,10 @@
 from flask import Flask,request,jsonify
 from tensorflow.keras.models import load_model
 import cv2
-from database import search
+#from database import search
 import numpy as np
 import tensorflow as tf
+from flask_cors import CORS, cross_origin
 
 img_size=224
 model = load_model('vgg16')
@@ -19,18 +20,25 @@ def prediction(data):
     return value[0][0]
 
 app = Flask(__name__)
+cors = CORS(app)
+
 @app.route('/',methods=['GET'])
+@cross_origin(origin='http://localhost')
 def index():
     return jsonify({'message' : 'Hello, World!'})
 
 @app.route('/predict',methods=['GET','POST'])
+@cross_origin(origin='http://localhost')
 def predict():
+    #request.headers.add('Access-Control-Allow-Origin','*')
     data = request.get_json()
     path = data['path']
     image = cv2.imread(path)
     image = preprocessing_image(image)
     pred = prediction(image)
-    return jsonify({'data': int(pred)})
-
+    result = jsonify({'data': str(pred)})
+    result.headers.add('Access-Control-Allow-Origin', '*')
+    return result
+    
 if __name__ == "__main__":
     app.run(debug=True)
