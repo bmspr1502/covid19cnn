@@ -1,5 +1,6 @@
 <?php 
-if(isset($_POST['predict'])){
+if(isset($_FILES)){
+    //print_r($_FILES);
     $file = $_FILES['image'];
     if(isset($file)) {
         $filename = $_FILES['image']['name'];
@@ -15,25 +16,20 @@ if(isset($_POST['predict'])){
         if(in_array($fileactualext, $allowed)){
             if ($fileerror === 0){
                 $filenamenew = uniqid('', true) . "." . $fileactualext;
-                $filedestination = 'images/' . $filenamenew;
-                move_uploaded_file($filetmp, $filedestination);
+                $filedestination = 'prediction_api/pred_img/' . $filenamenew;
+                if(move_uploaded_file($filetmp, $filedestination)){
+                    echo $filenamenew;
+                }
+                else{
+                    echo '0';
+                }
             } 
             else{
-                $_SESSION['data'] = $_POST;
-                echo "<script>";
-                echo "alert('Image not uploaded. Try again!!');";
-                echo "window.location.href = 'index.php';";
-                echo "</script>";
-                die('Not Uploaded');
+                echo '0';
             }
         }
         else{
-            $_SESSION['data'] = $_POST;
-            echo "<script>";
-            echo "alert('File type not supported. Try again');";
-            echo "window.location.href = 'index.php';";
-            echo "</script>";
-            die('Not Uploaded');
+            echo "0";
         }
     }
 }

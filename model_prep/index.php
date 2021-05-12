@@ -14,6 +14,30 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script>
+
+    function predict(path){
+      $.ajax({
+                url: 'http://127.0.0.1:5000/predict',
+                type: 'POST',
+                data: {
+                    path:   path
+                    //framework: 'hello'
+                },/*
+                headers: {
+                    "Access-Control-Allow-Origin":"*"
+                },
+                //crossDomain: true,
+                */
+                //dataType: 'json',
+                success: function(data){
+                    console.log(data);
+                    let str = JSON.stringify(data);
+                    let msg = JSON.parse(str);
+
+                    $('#resultmodal').html('The prediction of the given image is: '+ msg.data);
+                }
+           })
+    }
     $(document).ready(function(){
       $("#patientform").on("submit", function(event){
             event.preventDefault();
@@ -37,7 +61,36 @@
                 $("#result2").html(data);
             });
         });
+
+        $("#pred_up").click(function(){
+
+            var fd = new FormData();
+            var files = $('#image')[0].files[0];
+            //console.log(files);
+            // Check file selected or not
+              fd.append('image',files);
+              //console.log();
+              $.ajax({
+                  url: 'upload_image.php',
+                  type: 'post',
+                  data: fd,
+                  contentType: false,
+                  processData: false,
+                  cache: false,
+                  success: function(response){
+                    if(response!=0){
+                        predict(response);
+                        $("#img").attr("src",'prediction_api/pred_img/'+response); 
+                        $(".preview img").show(); // Display image element
+                    }else{
+                        alert("Upload failed");
+                    }
+                  },
+              });
+            
+            });
     });
+  
     </script>
 </head>
 
@@ -61,9 +114,14 @@
         Upload your CT Scan image
       </div>
       <div class="modal-footer">
-        <form action="upload_image.php" method="post" enctype="multipart/form-data">
-            <input type="file" name="image" id="image">
-            <button type="submit" class="btn btn-danger" name = "predict">Predict</button>
+        <form action="" method="post" enctype="multipart/form-data" id='my_form'>
+          <div class='preview'>
+              <img src="" id="img" width="100" height="100">
+              <p id='resultmodal'></p>
+          </div>
+            <input type="file" name="image" id="image" />
+            <input type="button" class="btn btn-success" id='pred_up' name='upload' value='upload'>
+            <button type="button" class="btn btn-danger" >Predict</button>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         </form>
       </div>
