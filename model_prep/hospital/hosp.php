@@ -193,6 +193,15 @@ $(document).ready(function(){
         </div>
       </div>
       <div class="row">
+        <div class="col-25">PREVIEW</div>
+        <div class = "col-75">
+          <div class='preview'>
+              <img src="" id="img" width="100" height="100">
+              <p id='resultmodal'></p>
+          </div>
+  </div>
+      </div>
+      <div class="row">
       <div class="col-25">
         <label for="pri">PREDICTED RESULT</label>
       </div>
@@ -201,10 +210,7 @@ $(document).ready(function(){
       </div>
     </div>
     <input type="hidden" id='img_name' name="img_name" value="abc.jpg">
-    <div class='preview'>
-              <img src="" id="img" width="100" height="100">
-              <p id='resultmodal'></p>
-          </div>
+    
     <div class="row">
       <div class="col-25">
         <label for="pri">PREDICTED PERCENTAGE</label>
