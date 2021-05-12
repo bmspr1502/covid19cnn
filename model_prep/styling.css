@@ -1,0 +1,38 @@
+body{
+    background-image: url("images/home.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+.btn-group-vertical button {
+    background-color: #eeebdd;
+    border: 1px solid #eeebdd; 
+    border-radius: 5px;
+    color: #1b1717;
+    font-size: x-large;
+    padding: 5px;
+}
+.btn-group-vertical button:hover{
+    background-color: #f0e3ca;
+    border: 1px solid #f0e3ca; 
+    color: #1b1717;
+}
+  
+.btn-group-vertical button{
+    top:200px;
+    left:1000px;
+    padding:6px;
+    margin: 30px;
+}
+.upload{
+    top:400px;
+    left:400px;
+}
+input[type=text] {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #a0937d;
+    width: 400px;
+    margin: 10px;
+}
+
