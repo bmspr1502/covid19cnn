@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Stuff</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    </head>
+
+    <body>
+        <p id='result'></p>
+        <button onclick='getresult(); summaa()' id="clickbutton">Click Me</button>
+        <script>
+            function getresult(){
+              /*  
+            $.post('http://127.0.0.1:5000/predict',{
+                path: 'C:\\xampp\\htdocs\\covid19cnn\\api\\img\\Covid (116).png'
+            },function(data, result){
+                console.log(data);
+                //let str = JSON.stringify(data);
+                let msg = JSON.parse(str);
+                //$('#result').html(msg.message);
+                $('#status').html(result);
+
+            })
+            */
+           $.ajax({
+                url: 'http://192.168.43.13:5000/predict',
+                type: 'POST',
+                data: {
+                    path:   'C:\\xampp\\htdocs\\covid19cnn\\api\\img\\Covid (116).png'
+                },
+                headers: {
+                    "Access-Control-Allow-Origin":"*"
+                },
+                crossDomain: true,
+                dataType: 'json',
+                success: function(data){
+                    console.log(data);
+                }
+           })
+           
+        }
+        function summaa(){
+            $.post('http://192.168.43.13:5000/', function(data, result){
+                let str = JSON.stringify(data);
+                let msg = JSON.parse(str);
+                console.log(msg.message);
+                //msg = JSON.parse(data);
+                //console.log(msg.message);
+                $('#result').html(msg.message);
+                //$('#status').html(result);
+
+            })
+        }
+        </script>
+    </body>
+</html>
