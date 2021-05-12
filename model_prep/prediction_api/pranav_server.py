@@ -37,7 +37,8 @@ def rou():
 def predict():
     #request.headers.add('Access-Control-Allow-Origin','*')
     #data = request.get_json()
-    path = request.form['path']
+    path = 'pred_img/'
+    path = path+request.form['path']
     
     image = cv2.imread(path)
     image = preprocessing_image(image)
