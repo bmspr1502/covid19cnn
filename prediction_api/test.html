@@ -7,12 +7,14 @@
 
     <body>
         <p id='result'></p>
+        <p id='presult'></p>
         <button onclick='getresult(); summaa()' id="clickbutton">Click Me</button>
         <script>
             function getresult(){
               //'C:\\xampp\\htdocs\\covid19cnn\\api\\img\\Covid (116).png'
+              /*
             $.post('http://127.0.0.1:5000/predict',{
-                path: 'hello'
+                path: 'C:\\xampp\\htdocs\\covid19cnn\\api\\img\\Covid (116).png'
             },function(data, result){
                 console.log(data);
                 //let str = JSON.stringify(data);
@@ -21,25 +23,32 @@
                 $('#status').html(result);
 
             })
+            */
             
-           /*
+           
            $.ajax({
                 url: 'http://127.0.0.1:5000/predict',
                 type: 'POST',
                 data: {
-                    path:   'C:\\xampp\\htdocs\\covid19cnn\\api\\img\\Covid (116).png'
-                },
+                    path:   'img/Covid (116).png'
+                    //framework: 'hello'
+                },/*
                 headers: {
                     "Access-Control-Allow-Origin":"*"
                 },
                 //crossDomain: true,
-                dataType: 'json',
+                */
+                //dataType: 'json',
                 success: function(data){
                     console.log(data);
+                    let str = JSON.stringify(data);
+                    let msg = JSON.parse(str);
+
+                    $('#result').html('The prediction of the given image is: '+ msg.data);
                 }
            })
            
-           
+           /*
            $.get('api.php', function(data, result){
                console.log(data);
                 let str = JSON.stringify(data);
@@ -52,13 +61,13 @@
            */
         }
         function summaa(){
-            $.get('http://127.0.0.1:5000/', function(data, result){
+            $.post('http://127.0.0.1:5000/', function(data, result){
                 let str = JSON.stringify(data);
                 let msg = JSON.parse(str);
                 console.log(msg.message);
                 //msg = JSON.parse(data);
                 //console.log(msg.message);
-                $('#result').html(msg.message);
+                $('#presult').html(msg.message);
                 //$('#status').html(result);
 
             })

@@ -22,23 +22,30 @@ def prediction(data):
 app = Flask(__name__)
 cors = CORS(app)
 
-@app.route('/',methods=['GET'])
+@app.route('/',methods=['GET', 'POST'])
 @cross_origin(origin='http://localhost')
 def index():
     return jsonify({'message' : 'Hello, World!'})
 
-@app.route('/predict',methods=['GET','POST'])
+@app.route('/test', methods=['GET'])
+def rou():
+    data =  request.data
+    return jsonify(data)
+
+@app.route('/predict',methods=['POST'])
 @cross_origin(origin='http://localhost')
 def predict():
     #request.headers.add('Access-Control-Allow-Origin','*')
-    data = request.get_json()
-    path = data['path']
+    #data = request.get_json()
+    path = request.form['path']
+    
     image = cv2.imread(path)
     image = preprocessing_image(image)
     pred = prediction(image)
     result = jsonify({'data': str(pred)})
     result.headers.add('Access-Control-Allow-Origin', '*')
-    return result
     
+    return result
+
 if __name__ == "__main__":
     app.run(debug=True)
