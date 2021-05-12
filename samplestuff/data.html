@@ -20,36 +20,14 @@
                 type: 'POST',
                 data: {
                     path:   'img/Covid (116).png'
-                },/*
-                headers: {
-                    "Access-Control-Allow-Origin":"*"
                 },
-                //crossDomain: true,
-                */
                 success: function(data){
                     console.log(data);
                     $('#result').html(data)
                 }
            })
         }
-            /*
-            $.get('http://127.0.0.1:5000/test',{
-                'language':'hn',
-                'framework':'hd'
-            }, function(data, result){
-                console.log(data)
-                //$('#result').html
-                //let str = JSON.stringify(data);
-                //let msg = JSON.parse(str);
-                //console.log(msg.language);
-                //msg = JSON.parse(data);
-                //console.log(msg.message);
-                $('#result').html(data);
-                //$('#status').html(result);
-
-            })
-        }
-        */
+           
        
 
         function getpost(){
