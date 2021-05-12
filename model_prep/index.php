@@ -80,7 +80,7 @@
                   success: function(response){
                     if(response!=0){
                         predict(response);
-                        $("#img").attr("src",'prediction_api/pred_img/'+response); 
+                        $("#img").attr("src",'hospital/prediction_api/pred_img/'+response); 
                         $(".preview img").show(); // Display image element
                     }else{
                         alert("Upload failed");

@@ -5,7 +5,11 @@
 <html>
 <head>
 	<title>Hospital | Login</title>
+  
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src='hosp.js'></script>
     <style>
 * {
   box-sizing: border-box;
@@ -117,7 +121,7 @@ input[type=submit]:hover {
     </div>
   </nav>
   <div class="containerss">
-  <form action="pat_details.php" id="addpatient" method="POST" enctype="multipart/form-data">
+  <form action="" id="addpatient" method="POST" enctype="multipart/form-data">
     <div class="row">
       <div class="col-25">
         <label for="pname">PATIENT NAME</label>
@@ -162,32 +166,36 @@ input[type=submit]:hover {
         <label for="ha">NEGATIVE</label><br>
       </div>
     </div>
-    <form action="predict.php" id="predict">
+    <form action=""  method="post" enctype="multipart/form-data" id="predict">
       <div class="row">
       <div class="col-25">
         <label>CHOOSE IMAGE</label>
       </div>
       <div class="col-75">
         <input type="file" name="image" id="image">
-        <button type="submit" class="btn btn-danger">Predict</button>
+        <button type="button" id='upimg' class="btn btn-danger">Predict</button>
       </div>
       </div>
       </form>
     <div class="row">
       <div class="col-25">
-        <label for="pri">SCAN RESULT</label>
+        <label for="pri">PREDICTED RESULT</label>
       </div>
       <div class="col-75">
-        <input type="text" id="pr" name="scan_result" value="-1">
+        <input type="text" id="scan_result" name="scan_result" value="-1">
       </div>
     </div>
-    <input type="hidden" name="img_name" value="abc.jpg">
+    <input type="hidden" id='img_name' name="img_name" value="abc.jpg">
+    <div class='preview'>
+              <img src="" id="img" width="100" height="100">
+              <p id='resultmodal'></p>
+          </div>
     <div class="row">
       <div class="col-25">
-        <label for="pri">SCAN PERCENTAGE</label>
+        <label for="pri">PREDICTED PERCENTAGE</label>
       </div>
       <div class="col-75">
-        <input type="text" id="pr" name="percentage" value="-1">
+        <input type="text" id="percentage" name="percentage" value="-1">
       </div>
     </div>
 <!--

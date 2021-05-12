@@ -16,7 +16,7 @@ if(isset($_FILES)){
         if(in_array($fileactualext, $allowed)){
             if ($fileerror === 0){
                 $filenamenew = uniqid('', true) . "." . $fileactualext;
-                $filedestination = 'hospital/prediction_api/pred_img/' . $filenamenew;
+                $filedestination = 'prediction_api/train_img/' . $filenamenew;
                 if(move_uploaded_file($filetmp, $filedestination)){
                     echo $filenamenew;
                 }
