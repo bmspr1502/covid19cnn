@@ -6,7 +6,13 @@ import numpy as np
 import tensorflow as tf
 
 img_size=224
-model = load_model('vgg16')
+
+
+def get_latestmodel():
+        directory = 'saved_model'
+        latest_subdir = max([os.path.join(directory,d) for d in os.listdir(directory)], key=os.path.getmtime)
+        model_dir = latest_subdir.replace("\\","/")
+        return model_dir
 
 def preprocessing_image(data):
     img_resize = cv2.resize(data, dsize=(img_size, img_size))
@@ -17,6 +23,8 @@ def preprocessing_image(data):
 def prediction(data):
     value = model.predict(data)   
     return value[0][0]
+
+model = load_model(get_latestmodel())
 
 app = Flask(__name__)
 @app.route('/',methods=['GET'])
