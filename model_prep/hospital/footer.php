@@ -42,12 +42,7 @@ ul li{
   </ul>
 
   <div class="footer-copyright text-center py-3">© 2021 Copyright:
-    <a href="#"> connection.com</a>
+    <a href="#"> hospital.com</a>
   </div>
-  <!-- Footer Elements -->
 </div>
-  <!-- Copyright -->
-
-  <!-- Copyright -->
-
 </footer>

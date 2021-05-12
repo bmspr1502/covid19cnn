@@ -117,13 +117,13 @@ input[type=submit]:hover {
     </div>
   </nav>
   <div class="containerss">
-  <form action="products.php" id="products" method="POST" enctype="multipart/form-data">
+  <form action="pat_details.php" id="addpatient" method="POST" enctype="multipart/form-data">
     <div class="row">
       <div class="col-25">
         <label for="pname">PATIENT NAME</label>
       </div>
       <div class="col-75">
-        <input type="text" id="prd" name="name" >
+        <input type="text" id="prd" name="pat_name" >
       </div>
     </div>
     <div class="row">
@@ -131,7 +131,7 @@ input[type=submit]:hover {
         <label for="pri">PATIENT PHONE</label>
       </div>
       <div class="col-75">
-        <input type="text" id="pr" name="price" >
+        <input type="text" id="pr" name="pat_phone" >
       </div>
       </div>
         <div class="row">
@@ -139,33 +139,15 @@ input[type=submit]:hover {
         <label for="pdesp">PATIENT ADDRESS</label>
       </div>
       <div class="col-75">
-        <textarea id="desc" name="description"  style="height:100px"></textarea>
+        <textarea id="desc" name="pat_address"  style="height:100px"></textarea>
       </div>
     </div>
-    <!--
-    <div>
-    <div class="row">
-      <div class="col-25">
-      <p>PRODUCT CATEGORY </p>
-      </div>
-      <div class="col-75">
-      <input type="radio" id="access" name="category" value="1">
-    <label for="acc">ACCESSORIES</label><br>
-    <input type="radio" id="han" name="category" value="2">
-    <label for="ha">HANDICRAFTS</label><br>
-    <input type="radio" id="clo" name="category" value="3">
-    <label for="cl">CLOTHING</label><br>
-    <input type="radio" id="sec" name="category" value="4">
-    <label for="se">SECOND HAND BOOKS</label><br><br>
-    </div>
-    </div>
--->
     <div class="row">
       <div class="col-25">
         <label for="pri">TEST DATE</label>
       </div>
       <div class="col-75">
-        <input type="text" id="pr" name="price" >
+        <input type="date" id="pr" name="date" >
       </div>
     </div>
     <div class="row">
@@ -174,13 +156,13 @@ input[type=submit]:hover {
         <p>RTPCR TEST</p>
       </div>
       <div class="col-75">
-        <input type="radio" id="access" name="category" value="1">
+        <input type="radio" id="access" name="rtpcr" value="1">
         <label for="acc">POSITIVE</label><br>
-        <input type="radio" id="han" name="category" value="2">
+        <input type="radio" id="han" name="rtpcr" value="0">
         <label for="ha">NEGATIVE</label><br>
       </div>
     </div>
-
+    <form action="predict.php" id="predict">
       <div class="row">
       <div class="col-25">
         <label>CHOOSE IMAGE</label>
@@ -190,31 +172,34 @@ input[type=submit]:hover {
         <button type="submit" class="btn btn-danger">Predict</button>
       </div>
       </div>
+      </form>
     <div class="row">
       <div class="col-25">
         <label for="pri">SCAN RESULT</label>
       </div>
       <div class="col-75">
-        <input type="text" id="pr" name="price" >
+        <input type="text" id="pr" name="scan_result" value="-1">
       </div>
     </div>
+    <input type="hidden" name="img_name" value="abc.jpg">
     <div class="row">
       <div class="col-25">
         <label for="pri">SCAN PERCENTAGE</label>
       </div>
       <div class="col-75">
-        <input type="text" id="pr" name="price" >
+        <input type="text" id="pr" name="percentage" value="-1">
       </div>
     </div>
+<!--
     <div class="row">
       <div class="col-25">
           <br>
         <p>DOCTOR'S RESULT</p>
       </div>
       <div class="col-75">
-        <input type="radio" id="access" name="category" value="1">
+        <input type="radio" id="access" name="doc_result" value="1">
         <label for="acc">POSITIVE</label><br>
-        <input type="radio" id="han" name="category" value="2">
+        <input type="radio" id="han" name="doc_result" value="0">
         <label for="ha">NEGATIVE</label><br>
       </div>
     </div>
@@ -223,7 +208,7 @@ input[type=submit]:hover {
         <label for="pri">SCORE</label>
       </div>
       <div class="col-75">
-        <input type="text" id="pr" name="price" >
+        <input type="text" id="pr" name="score" >
       </div>
     </div>
     <div class="row">
@@ -231,9 +216,10 @@ input[type=submit]:hover {
         <label for="pdesp">REMARKS</label>
       </div>
       <div class="col-75">
-        <textarea id="desc" name="description"  style="height:200px"></textarea>
+        <textarea id="desc" name="remarks"  style="height:200px"></textarea>
       </div>
     </div>
+-->
     <div class="row">
     <div class="col-75">
      <div style="text-align:center" ><input type="submit" value="submit" name="submit">
