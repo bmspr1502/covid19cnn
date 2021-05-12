@@ -77,8 +77,22 @@ input[type=submit]:hover {
     margin-top: 0;
   }
 }
-
 </style>
+<script>
+$(document).ready(function(){
+      $("#addpatients").on("submit", function(event){
+            event.preventDefault();
+
+            var formValues= $(this).serialize();
+            console.log(formValues);
+
+            $.post("pat_details.php", formValues, function(data){
+                // Display the returned data in browser
+                $("#result").html(data);
+            });
+        });
+    });
+</script>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -117,7 +131,7 @@ input[type=submit]:hover {
     </div>
   </nav>
   <div class="containerss">
-  <form action="pat_details.php" id="addpatient" method="POST" enctype="multipart/form-data">
+  <form action="pat_details.php" id="addpatients" method="POST" enctype="multipart/form-data">
     <div class="row">
       <div class="col-25">
         <label for="pname">PATIENT NAME</label>
@@ -162,6 +176,7 @@ input[type=submit]:hover {
         <label for="ha">NEGATIVE</label><br>
       </div>
     </div>
+    <!--
     <form action="predict.php" id="predict">
       <div class="row">
       <div class="col-25">
@@ -172,7 +187,8 @@ input[type=submit]:hover {
         <button type="submit" class="btn btn-danger">Predict</button>
       </div>
       </div>
-      </form>
+    </form>
+-->
     <div class="row">
       <div class="col-25">
         <label for="pri">SCAN RESULT</label>
@@ -181,7 +197,9 @@ input[type=submit]:hover {
         <input type="text" id="pr" name="scan_result" value="-1">
       </div>
     </div>
+
     <input type="hidden" name="img_name" value="abc.jpg">
+
     <div class="row">
       <div class="col-25">
         <label for="pri">SCAN PERCENTAGE</label>
@@ -222,13 +240,16 @@ input[type=submit]:hover {
 -->
     <div class="row">
     <div class="col-75">
-     <div style="text-align:center" ><input type="submit" value="submit" name="submit">
+     <div style="text-align:center" >
+     <button type="submit" class="btn btn-danger">Submit</button>
     </div>
     </div>
-      </div>
+</div>
+      <div id="result"></div>
 </form>
 </div>
 <br><br><br>
+
 <?php include('footer.php');?>
 </body>
 </html>
