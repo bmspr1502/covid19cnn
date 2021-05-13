@@ -15,6 +15,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script>
 
+    function insert_pred_table(name, result){
+      $.post('db_add_predict.php', {
+        img_name: name,
+        result: result
+      }, function(data){
+        console.log(data);
+          if(data==="SUCCESS"){
+            $('#resultmodal').append('Your image is stored for quality and maintenance purpose.');
+          }
+      })
+    }
     function predict(path){
       $.ajax({
                 url: 'http://127.0.0.1:5000/predict',
@@ -22,19 +33,13 @@
                 data: {
                     path:   path
                     //framework: 'hello'
-                },/*
-                headers: {
-                    "Access-Control-Allow-Origin":"*"
                 },
-                //crossDomain: true,
-                */
-                //dataType: 'json',
                 success: function(data){
                     console.log(data);
                     let str = JSON.stringify(data);
                     let msg = JSON.parse(str);
-
-                    $('#resultmodal').html('The prediction of the given image is: '+ msg.data);
+                    insert_pred_table(msg.name, msg.result);
+                    $('#resultmodal').append('<br>The prediction of the given image is: <b>'+ msg.result+'</b><br>');
                 }
            })
     }
@@ -63,7 +68,7 @@
         });
 
         $("#pred_up").click(function(){
-
+            $('#resultmodal').html('');
             var fd = new FormData();
             var files = $('#image')[0].files[0];
             //console.log(files);
@@ -116,7 +121,7 @@
       <div class="modal-footer">
         <form action="" method="post" enctype="multipart/form-data" id='my_form'>
           <div class='preview'>
-              <img src="" id="img" width="100" height="100">
+              <img src="" style='display:none' id="img" width="224" height="224">
               <p id='resultmodal'></p>
           </div>
             <input type="file" name="image" id="image" />
@@ -130,22 +135,21 @@
 </div>
 
 <div class="modal fade" id="patient" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog modal-xl" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Patient</h5>
+        <h5 class="modal-title text-center" id="exampleModalLabel">Patient Login</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        Please Login to see your result
+       <div id="result1" >Please Login to see the details</div>
       </div>
       <div class="modal-footer">
         <form action="pat_login.php" method="post" id="patientform">
             <input type="text" name="pname" class = "pat_phone" placeholder = "Name">
             <input type="text" name="phone" class = "pat_phone" placeholder = "Phone">
-            <div id="result1" style="color:red;"></div>
             <button type="submit" class="btn btn-danger">Login</button>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         </form>

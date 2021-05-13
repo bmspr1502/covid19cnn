@@ -43,14 +43,14 @@ def predict():
     image = cv2.imread(path)
     image = preprocessing_image(image)
     pred = prediction(image)
-    result = jsonify({'name':path,'percentage': str(pred), 'result':int(pred)})
+    result = jsonify({'name':request.form['path'],'percentage': str(pred), 'result':int(pred)})
     result.headers.add('Access-Control-Allow-Origin', '*')
     
     return result
 
 @app.route('/hosppredict',methods=['POST'])
 @cross_origin(origin='http://localhost')
-def hospredict():
+def hosppredict():
     #request.headers.add('Access-Control-Allow-Origin','*')
     #data = request.get_json()
     path = 'train_img/'
