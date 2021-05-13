@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo "Successfully inserted";
     }
     else{
-        echo "Error: " . $sql1 . "<br>" . $con->error;
+        echo "Error:  <br>" . $con->error;
     }
 }
 ?>

@@ -91,7 +91,6 @@ $(document).ready(function(){
             console.log(formValues);
 
             $.post("pat_details.php", formValues, function(data){
-                alert(data);
                 // Display the returned data in browser
                 $("#result").html(data);
             });
@@ -112,7 +111,7 @@ $(document).ready(function(){
           <a class="nav-link active" href="#">ADD PATIENT <span class="sr-only">(current)</span></a>
         </li>
         <li>
-          <a class="nav-link" href="#">PATIENT DETAILS<span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="patient.php">PATIENT DETAILS<span class="sr-only">(current)</span></a>
         </li>
         <li>
           <a class="nav-link" href="#">POSITIVE<span class="sr-only">(current)</span></a>
