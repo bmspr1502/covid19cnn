@@ -113,22 +113,7 @@ $(document).ready(function(){
         <li>
           <a class="nav-link" href="patient.php">PATIENT DETAILS<span class="sr-only">(current)</span></a>
         </li>
-        <li>
-          <a class="nav-link" href="#">POSITIVE<span class="sr-only">(current)</span></a>
-        </li>
-        <li>
-          <a class="nav-link" href="#">NEGATIVE<span class="sr-only">(current)</span></a>
-        </li>
-        <li>
-          <a class="nav-link" href="#">MONTH<span class="sr-only">(current)</span></a>
-        </li>
-        <li>
-          <a class="nav-link" href="#">MONTH<span class="sr-only">(current)</span></a>
-        </li>
-        <li>
-          <a class="nav-link" href="#">NOT VERFIED<span class="sr-only">(current)</span></a>
-        </li>
-        <li>
+       <li>
         <a class="nav-link" href="#">Log Out<span class="sr-only">(current)</span></a>
         </li>
       </ul>
