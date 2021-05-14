@@ -1,0 +1,1 @@
+add the covid and non-covid images in the folder for retraining purpose
