@@ -11,7 +11,7 @@ if(isset($_POST['train'])){
         while($row = $result->fetch_assoc()){
             ?>
             <div class='col-3 col-md-4 col-sm-6'>
-            <div class="card" style="width:400px">
+            <div class="card">
                 <img class="card-img-top img-fluid" src="prediction_api/train_img/<?php echo $row['img_name']?>" alt="Card image">
                 <div class="card-body">
                     <h4 class="card-title"><?php echo $row['pat_name']?></h4>
