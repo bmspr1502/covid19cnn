@@ -126,7 +126,6 @@
           </div>
             <input type="file" name="image" id="image" />
             <input type="button" class="btn btn-success" id='pred_up' name='upload' value='upload'>
-            <button type="button" class="btn btn-danger" >Predict</button>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         </form>
       </div>
