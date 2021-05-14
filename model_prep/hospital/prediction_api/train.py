@@ -27,6 +27,9 @@ def allowed_file(filename):
 def preprocessing_data():
         train_x = []
         x,y = get_newdata()
+        old_x,old_y = get_olddata(10)
+        x = x+old_x
+        y = y+old_y
         for img_path in x:
                 data = cv2.imread(img_path)
                 img_resize = cv2.resize(data, dsize=(img_size, img_size))
@@ -42,8 +45,25 @@ def train_model(epoch):
         date = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
         filename = f"model_{date}"
         model.save('saved_model/{}'.format(filename))
-        
-        
+
+def get_olddata(num):
+        data = []
+        x = []
+        y = []
+        for file in os.listdir('temp/COVID'):
+                data.append(['temp/COVID/'+file,1])
+        for file in os.listdir('temp/non-COVID'):
+                data.append(['temp/non-COVID/'+file,0])
+        random.shuffle(data)
+        data = data[:num]
+
+        for img in data:
+                x.append(img[0])
+                y.append(img[1])
+
+        return x,y
+
+      
 app = Flask(__name__)
 cor = CORS(app)
 
