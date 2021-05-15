@@ -50,7 +50,8 @@ def predict():
     image = cv2.imread(path)
     image = preprocessing_image(image)
     pred = prediction(image)
-    result = jsonify({'name':request.form['path'],'percentage': str(pred), 'result':int(pred)})
+    
+    result = jsonify({'name':request.form['path'],'percentage': str(pred), 'result':int(round(pred,2)) })
     result.headers.add('Access-Control-Allow-Origin', '*')
     
     return result
