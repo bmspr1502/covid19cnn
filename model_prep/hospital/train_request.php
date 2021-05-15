@@ -10,6 +10,26 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body{
+            background-image: url("home.jpg");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+        .container{
+            margin-top: 2em;
+        }
+        hr{
+            border: 2px solid black;
+        }
+        .dab{
+            padding: 2px;
+            background-color: #303030	;
+            color: white;
+            width: 14em;
+        }
+    </style>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -36,17 +56,20 @@
     </div>
   </nav>
 <div class='container'>
-<button type='button' class='btn btn-success' onclick='train_call()' id = "dis" style = "margin-left:500px">Click me to train the model</button>
+<button type='button' class='btn btn-dark' onclick='train_call()' id = "dis" style = "margin-left:500px">Click me to train the model</button>
+<hr>
     <div class='col'>
-    <h2>Untrained Data</h2>
+    <div class="dab"> <h2>Untrained Data</h2> </div><br>
     <div id='nottrain'></div>
     </div>
+    <hr>
     <div class='col'>
-    <h2>UnValued Data</h2>
+    <div class="dab"><h2>UnValued Data</h2></div><br>
     <div id='notgraded'></div>
     </div>
+    <hr>
     <div class='col'>
-    <h2>Trained Data</h2>
+   <div class="dab" style="width: 12em;"> <h2>Trained Data</h2> </div>
     <div id='train'></div>
     </div>
 <p id='result'></p>

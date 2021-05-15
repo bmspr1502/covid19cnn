@@ -11,6 +11,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src='hosp.js'></script>
     <style>
+    body{
+    background-image: url("home.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
 * {
   box-sizing: border-box;
 }
@@ -114,10 +120,10 @@ $(document).ready(function(){
           <a class="nav-link" href="patient.php">PATIENT DETAILS<span class="sr-only">(current)</span></a>
         </li>
         <li>
-        <a class="nav-link" href="train_request.php">TRAIN DATA<span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="train_request.php">TRAIN IMAGES<span class="sr-only">(current)</span></a>
         </li>
        <li>
-        <a class="nav-link" href="#">LOGOUT<span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="../index.php">Log Out<span class="sr-only">(current)</span></a>
         </li>
       </ul>
     </div>
@@ -169,7 +175,7 @@ $(document).ready(function(){
         <label for="ha">NEGATIVE</label><br>
       </div>
     </div>
-   
+
       <div class="row">
         <div class="col-25">
           <label>CT SCAN IMAGE</label>
@@ -183,7 +189,7 @@ $(document).ready(function(){
         <div class="col-25">PREVIEW</div>
         <div class = "col-75">
           <div class='preview'>
-              <img src="" id="img" width="100" height="100">
+              <img src="" id="img" width="100" height="100" style="display: none;">
               <p id='resultmodal'></p>
           </div>
   </div>
@@ -197,7 +203,7 @@ $(document).ready(function(){
       </div>
     </div>
     <input type="hidden" id='img_name' name="img_name" value="abc.jpg">
-    
+
     <div class="row">
       <div class="col-25">
         <label for="pri">PREDICTED PERCENTAGE</label>
@@ -206,8 +212,8 @@ $(document).ready(function(){
         <input type="text" id="percentage" name="percentage" value="-1">
       </div>
     </div>
-    
-    
+
+
 <!--
     <div class="row">
       <div class="col-25">
@@ -246,7 +252,7 @@ $(document).ready(function(){
     <div id="result"></div>
     </div>
 </div>
-      
+
 </form>
 </div>
 <br><br><br>
