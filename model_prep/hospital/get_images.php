@@ -15,9 +15,9 @@ if(isset($_POST['train'])){
         <?php
         while($row = $result->fetch_assoc()){
             ?>
-            <div class='col-12 col-sm-6 col-lg-3 col-md-4'>
-            <div class="card">
-                <img class="card-img-top img-fluid" src="prediction_api/train_img/<?php echo $row['img_name']?>" alt="Card image">
+            <div class='col-12 col-sm-6 col-lg-3 col-md-4' style="padding:10px">
+            <div class="card" style = "height:500px;padding:5px">
+                <img class="card-img-top img-fluid" style = "height:220px;" src="prediction_api/train_img/<?php echo $row['img_name']?>" alt="Card image">
                 <div class="card-body">
                     <h4 class="card-title"><?php echo $row['pat_name']?></h4>
                     <p class="card-text">The ML model has predicted this to be 

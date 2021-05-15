@@ -20,15 +20,6 @@
         hr{
             border: 2px solid black;
         }
-<<<<<<< HEAD
-=======
-        .dab{
-            padding: 2px;
-            background-color: #303030	;
-            color: white;
-            width: 18em;
-        }
->>>>>>> 87fa7ec640cee1e44287fe0053e1fed571f12e2b
     </style>
 </head>
 <body>

@@ -12,15 +12,8 @@
     <script src='hosp.js'></script>
     <style>
     body{
-    background-image: url("home.jpg");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
+    background-color: #fb3640!important;
 }
-* {
-  box-sizing: border-box;
-}
-
 input[type=text], select, textarea {
   width: 100%;
   padding: 12px;
