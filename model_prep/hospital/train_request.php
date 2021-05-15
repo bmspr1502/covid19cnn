@@ -10,10 +10,18 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body{
+            background-image: url("home.jpg");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+}
+    </style>
 </head>
 <body>
 <div class='container'>
-<h1>testing train</h1>
+<h1>TESTING TRAIN</h1>
 <button type='button' class='btn btn-success' onclick='train_call()'>Click Me to train the untrained images</button>
     <div class='col'>
     <h2>Non Trained Data</h2>

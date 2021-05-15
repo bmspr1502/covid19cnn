@@ -18,6 +18,12 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <style>
+      body{
+    background-image: url("home.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
         .dabba{
             padding: 2em;
         }
@@ -139,7 +145,10 @@
           <a class="nav-link active" href="patient.php">PATIENT DETAILS<span class="sr-only">(current)</span></a>
         </li>
         <li>
-        <a class="nav-link" href="#">Log Out<span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="train_request.php">TRAIN IMAGES<span class="sr-only">(current)</span></a>
+        </li>
+        <li>
+        <a class="nav-link" href="../index.php">Log Out<span class="sr-only">(current)</span></a>
         </li>
       </ul>
     </div>
@@ -148,22 +157,22 @@
 <div class="dabba" >
 <form id="displayall" style="float:left; margin-right:20em;" method="post">
 <input type="hidden" name="disp_type" value="1">
-<button type="submit" name='submit' class="btn btn-danger">All Patients</button>
+<button type="submit" name='submit' class="btn btn-dark">All Patients</button>
 </form>
 
 <form id="displaypositive"  style="float:left; margin-right:20em;" method="post">
 <input type="hidden" name="disp_type" value="2">
-<button type="submit" name='submit' class="btn btn-danger">Positive</button>
+<button type="submit" name='submit' class="btn btn-dark">Positive</button>
 </form>
 
 <form id="displaynegative" style="float:left; margin-right:20em;" method="post">
 <input type="hidden" name="disp_type" value="3">
-<button type="submit" name='submit' class="btn btn-danger">Negative</button>
+<button type="submit" name='submit' class="btn btn-dark">Negative</button>
 </form>
 
 <form id="displaynotverified" style="float:left; margin-right:1em;" method="post">
 <input type="hidden" name="disp_type" value="4">
-<button type="submit" name='submit' class="btn btn-danger">Not verfied</button>
+<button type="submit" name='submit' class="btn btn-dark">Not verfied</button>
 </form>
 
 <br><br>
