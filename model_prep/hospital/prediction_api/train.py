@@ -9,7 +9,7 @@ import numpy as np
 from tensorflow.keras.models import load_model
 import tensorflow as tf
 from datetime import datetime
-import os
+import random
 from flask_cors import CORS, cross_origin
 
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
@@ -28,7 +28,7 @@ def allowed_file(filename):
 def preprocessing_data():
         train_x = []
         x,y = get_newdata()
-        old_x,old_y = get_olddata(10)
+        old_x,old_y = get_olddata(100)
         x = x+old_x
         y = y+old_y
         for img_path in x:

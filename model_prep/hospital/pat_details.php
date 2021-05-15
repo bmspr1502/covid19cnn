@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $sql = "INSERT INTO patient (pat_name, pat_phone, pat_address, test_date, rtpcr, img_name, scan_result, percentage) VALUES ('$pat_name', '$pat_phone', '$pat_address', '$date', '$rtpcr', '$img_name', '$scan_result', '$percentage')";
     if(mysqli_query($con, $sql))
     {
-        echo "Successfully inserted";
+        echo "<script>alert('Patient Inserted');</script>";
     }
     else{
         echo "Error:  <br>" . $con->error;
