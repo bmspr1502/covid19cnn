@@ -15,7 +15,7 @@ if(isset($_POST['train'])){
         <?php
         while($row = $result->fetch_assoc()){
             ?>
-            <div class='col-3 col-md-4 col-sm-6'>
+            <div class='col-12 col-sm-6 col-lg-3 col-md-4'>
             <div class="card">
                 <img class="card-img-top img-fluid" src="prediction_api/train_img/<?php echo $row['img_name']?>" alt="Card image">
                 <div class="card-body">
