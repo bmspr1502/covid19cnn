@@ -3,6 +3,7 @@ from flask import redirect, make_response,url_for
 from werkzeug.utils import secure_filename
 import os
 from database import insert_user,get_newdata
+import random
 import cv2
 import numpy as np
 from tensorflow.keras.models import load_model

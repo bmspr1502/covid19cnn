@@ -8,7 +8,7 @@ $details = mysqli_fetch_all($result, MYSQLI_ASSOC);
 foreach($details as $detail)
 {
     echo"
-    <img src='prediction_api/train_img/$detail[img_name]' height='auto' width='100%'>
+    <img src='prediction_api/train_img/$detail[img_name]' height='500px' width='100%'>
     <br><br>
     <form method='post' id='update' action='doc_update.php'>
         <div class='form-group'>

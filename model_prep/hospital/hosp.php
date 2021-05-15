@@ -129,7 +129,7 @@ $(document).ready(function(){
     </div>
   </nav>
   <div class="containerss">
-  <div id="result"></div>
+
   <form action="" id="addpatient" method="POST" enctype="multipart/form-data">
     <div class="row">
       <div class="col-25">
@@ -175,7 +175,7 @@ $(document).ready(function(){
         <label for="ha">NEGATIVE</label><br>
       </div>
     </div>
-   
+
       <div class="row">
         <div class="col-25">
           <label>CT SCAN IMAGE</label>
@@ -203,7 +203,7 @@ $(document).ready(function(){
       </div>
     </div>
     <input type="hidden" id='img_name' name="img_name" value="abc.jpg">
-    
+
     <div class="row">
       <div class="col-25">
         <label for="pri">PREDICTED PERCENTAGE</label>
@@ -212,8 +212,8 @@ $(document).ready(function(){
         <input type="text" id="percentage" name="percentage" value="-1">
       </div>
     </div>
-    
-    
+
+
 <!--
     <div class="row">
       <div class="col-25">
@@ -249,9 +249,10 @@ $(document).ready(function(){
      <div style="text-align:center" >
      <button type="submit" name='submit' id='submit' class="btn btn-danger">Submit</button>
     </div>
+    <div id="result"></div>
     </div>
 </div>
-      
+
 </form>
 </div>
 <br><br><br>

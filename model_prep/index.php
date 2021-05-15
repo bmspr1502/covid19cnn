@@ -39,7 +39,10 @@
                     let str = JSON.stringify(data);
                     let msg = JSON.parse(str);
                     insert_pred_table(msg.name, msg.result);
-                    $('#resultmodal').append('<br>The prediction of the given image is: <b>'+ msg.result+'</b><br>');
+                    if(msg.result === 0)
+                      $('#resultmodal').append('<br><b style ="color:green">Non-Covid</b><br>');
+                    else
+                      $('#resultmodal').append('<br><b style ="color:red">Covid</b><br>');
                 }
            })
     }
@@ -125,7 +128,7 @@
               <p id='resultmodal'></p>
           </div>
             <input type="file" name="image" id="image" />
-            <input type="button" class="btn btn-success" id='pred_up' name='upload' value='upload'>
+            <input type="button" class="btn btn-success" id='pred_up' name='upload' value='Upload'>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         </form>
       </div>

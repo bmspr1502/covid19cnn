@@ -57,14 +57,14 @@
 
             var formValues= $(this).serialize();
             console.log(formValues);
-            
+
             $.ajax({
                 method: "post",
                 url: "display_type.php",
                 data: formValues,
                 datatype: "html",
                 success: function(response) {
-                    
+
                     $('#result').html(response);
                 }
             });
@@ -86,7 +86,7 @@
                 data: formValues,
                 datatype: "html",
                 success: function(response) {
-                    
+
                     $('#result').html(response);
                 }
             });
@@ -103,7 +103,7 @@
                 data = ('#result').serialize()
                 //$("#result").html(data);
             });*/
-            
+
         });
         $("#displaynotverified").on("submit", function(event){
             event.preventDefault();
@@ -150,10 +150,14 @@
         <li>
         <a class="nav-link" href="../index.php">Log Out<span class="sr-only">(current)</span></a>
         </li>
+        <li>
+        <a class="nav-link" href="../index.php">Log Out<span class="sr-only">(current)</span></a>
+        </li>
+
       </ul>
     </div>
   </nav>
-  
+
 <div class="dabba" >
 <form id="displayall" style="float:left; margin-right:20em;" method="post">
 <input type="hidden" name="disp_type" value="1">
@@ -180,7 +184,7 @@
 
 </div>
 <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-  <div class="modal-dialog modal-xl" role="document">
+  <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLongTitle">UPDATE PATIENT</h5>
@@ -215,7 +219,7 @@
             });
         //alert("heyy");
     }
-    
+
 </script>
 </body>
 </html>
