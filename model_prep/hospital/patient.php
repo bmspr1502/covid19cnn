@@ -150,9 +150,6 @@
         <li>
         <a class="nav-link" href="../index.php">Log Out<span class="sr-only">(current)</span></a>
         </li>
-        <li>
-        <a class="nav-link" href="../index.php">Log Out<span class="sr-only">(current)</span></a>
-        </li>
 
       </ul>
     </div>

@@ -12,22 +12,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         body{
-            background-image: url("home.jpg");
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-size: cover;
+            background-color: #fb3640;
         }
         .container{
             margin-top: 2em;
         }
         hr{
             border: 2px solid black;
-        }
-        .dab{
-            padding: 2px;
-            background-color: #303030	;
-            color: white;
-            width: 14em;
         }
     </style>
 </head>
