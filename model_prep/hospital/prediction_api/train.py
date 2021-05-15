@@ -16,7 +16,7 @@ ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 img_size = 224
 
 def get_latestmodel():
-        directory = 'vgg16'
+        directory = 'saved_model'
         latest_subdir = max([os.path.join(directory,d) for d in os.listdir(directory)], key=os.path.getmtime)
         model_dir = latest_subdir.replace("\\","/")
         return model_dir
