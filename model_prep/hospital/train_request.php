@@ -25,7 +25,7 @@
         }
         .dab{
             padding: 2px;
-            background-color: black;
+            background-color: #303030	;
             color: white;
             width: 14em;
         }
@@ -56,7 +56,7 @@
     </div>
   </nav>
 <div class='container'>
-<button type='button' class='btn btn-success' onclick='train_call()' id = "dis" style = "margin-left:500px">Click me to train the model</button>
+<button type='button' class='btn btn-dark' onclick='train_call()' id = "dis" style = "margin-left:500px">Click me to train the model</button>
 <hr>
     <div class='col'>
     <div class="dab"> <h2>Untrained Data</h2> </div><br>
