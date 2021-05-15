@@ -28,7 +28,7 @@ def insert_user(image,result):
 
 def update_checkbit():
     cursor = mydb.cursor()
-    sql = ("UPDATE patient SET trained=1")
+    sql = ("UPDATE patient SET trained=1 WHERE doctor_result!=-1")
     cursor.execute(sql)
     mydb.commit()
 
@@ -40,9 +40,10 @@ def get_newdata():
     cursor.execute(sql)
     result = cursor.fetchall()
     for res in result:
-        print(res[0])
-        x_path.append('train_img/'+res[0])
-        y.append(res[1])
+        if res[1]!=-1:
+            print(res[0])
+            x_path.append('train_img/'+res[0])
+            y.append(res[1])
     update_checkbit()
     return x_path,y
 

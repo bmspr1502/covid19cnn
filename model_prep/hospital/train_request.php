@@ -20,6 +20,15 @@
         hr{
             border: 2px solid black;
         }
+<<<<<<< HEAD
+=======
+        .dab{
+            padding: 2px;
+            background-color: #303030	;
+            color: white;
+            width: 18em;
+        }
+>>>>>>> 87fa7ec640cee1e44287fe0053e1fed571f12e2b
     </style>
 </head>
 <body>
@@ -53,7 +62,12 @@
     <div class="dab"> <h2>Untrained Data</h2> </div><br>
     <div id='nottrain'></div>
     </div>
-<hr>
+    <hr>
+    <div class='col'>
+    <div class="dab"><h2>UnValued Data</h2></div><br>
+    <div id='notgraded'></div>
+    </div>
+    <hr>
     <div class='col'>
    <div class="dab" style="width: 12em;"> <h2>Trained Data</h2> </div>
     <div id='train'></div>
@@ -77,14 +91,17 @@
         }, function (data){
             if(type==1){
                 $('#train').html(data);
-            }else{
+            }else if(type==0){
                 $('#nottrain').html(data);
+            }else{
+                $('#notgraded').html(data);
             }
         })
     }
     $(document).ready(function(){
         get_images(0);
         get_images(1);
+        get_images(-1);
         $.ajax({
             url: 'try_call.php',
             success: function(data) {
