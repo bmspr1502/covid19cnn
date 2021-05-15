@@ -1,3 +1,4 @@
 
 api/vgg16/variables/variables.data-00000-of-00001
 *.data-00000-of-00001
+model_prep/hospital/prediction_api/temp/

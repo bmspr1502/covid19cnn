@@ -2,8 +2,10 @@
 include 'db.php';
 if(isset($_POST['train'])){
     $train = $_POST['train'];
-
-    $sql = "SELECT pat_name, img_name, scan_result, doctor_result FROM patient WHERE trained = $train";
+    $sql = "SELECT pat_name, img_name, scan_result, doctor_result FROM patient WHERE trained = $train AND doctor_result!=-1";
+    if($train == -1){
+        $sql = "SELECT pat_name, img_name, scan_result, doctor_result FROM patient WHERE doctor_result IN (-1)";
+    }
     if($result = $con->query($sql)){
         $rowcount=mysqli_num_rows($result);
         if($rowcount == 0)
@@ -29,16 +31,23 @@ if(isset($_POST['train'])){
                     The doctor's result is : <?php
                         if($row['doctor_result']==1){
                             echo "<b style='color:red'>INFECTED</b>";
-                        }else{
+                        }else if($row['doctor_result']==0){
                             echo "<b style='color:green'>NOT INFECTED</b>";
+                        }else {
+                            echo "<b style='color:brown'>WAITING FOR RESULT</b>";
                         }
                     ?> to CoVID-19.
                     <br>
                     <?php
-                        if($row['doctor_result']===$row['scan_result']){
-                            echo "<b style='color:green'>The model was correct.</b>";
-                        }else{
-                            echo "<b style='color:red'>The model identified incorrectly, needs to learn.</b>";
+                        if($row['doctor_result']!=-1){
+                            if($row['doctor_result']===$row['scan_result']){
+                                echo "<b style='color:green'>The model was correct.</b>";
+                            }else{
+                                echo "<b style='color:red'>The model identified incorrectly, needs to learn.</b>";
+                            }
+                        }
+                        else{
+                            echo "<b style='color:brown'>The results are not graded yet.</b>";
                         }
                     ?>
                     </p>

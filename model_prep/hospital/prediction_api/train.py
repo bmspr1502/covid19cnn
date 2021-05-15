@@ -40,8 +40,18 @@ def preprocessing_data():
 
 def train_model(epoch):
         x,y = preprocessing_data()
-        #model = load_model(get_latestmodel())
-        model = load_model('vgg16')
+        model = load_model(get_latestmodel())
+        #model = load_model('vgg16')
+        print('Number of training data - {}'.format(len(x)))
+        print('Loaded Model - {}'.format(get_latestmodel()))
+
+        for i, layer in enumerate(model.layers):
+                if i<19:
+                        layer.trainable = False
+        
+        for layer in model.layers:
+                print(layer, layer.trainable)
+        
         model.fit(x,y, epochs=epoch)
         date = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
         filename = f"model_{date}"
@@ -68,6 +78,7 @@ def get_olddata(num):
 app = Flask(__name__)
 cor = CORS(app)
 
+'''
 @app.route("/",methods=["GET","POST"])
 def main():
     if(request.method=="POST"):
@@ -79,7 +90,7 @@ def main():
         return "successfully uploaded"
     return render_template("index.html")
 
-
+'''
 @app.route("/train",methods=["GET","POST"])
 def train():
         #data = request.get_json()

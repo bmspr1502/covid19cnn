@@ -41,7 +41,10 @@
     <h2>Untrained Data</h2>
     <div id='nottrain'></div>
     </div>
-
+    <div class='col'>
+    <h2>UnValued Data</h2>
+    <div id='notgraded'></div>
+    </div>
     <div class='col'>
     <h2>Trained Data</h2>
     <div id='train'></div>
@@ -65,14 +68,17 @@
         }, function (data){
             if(type==1){
                 $('#train').html(data);
-            }else{
+            }else if(type==0){
                 $('#nottrain').html(data);
+            }else{
+                $('#notgraded').html(data);
             }
         })
     }
     $(document).ready(function(){
         get_images(0);
         get_images(1);
+        get_images(-1);
         $.ajax({
             url: 'try_call.php',
             success: function(data) {
