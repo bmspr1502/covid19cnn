@@ -5,6 +5,9 @@ if(isset($_POST['train'])){
 
     $sql = "SELECT pat_name, img_name, scan_result, doctor_result FROM patient WHERE trained = $train";
     if($result = $con->query($sql)){
+        $rowcount=mysqli_num_rows($result);
+        if($rowcount == 0)
+            echo 0;
         ?>
         <div class='row'>
         <?php

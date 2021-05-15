@@ -12,14 +12,35 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">HOSPITAL</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="hosp.php">ADD PATIENT <span class="sr-only">(current)</span></a>
+        </li>
+        <li>
+          <a class="nav-link" href="patient.php">PATIENT DETAILS<span class="sr-only">(current)</span></a>
+        </li>
+        <li>
+        <a class="nav-link active" href="train_request.php">TRAIN DATA<span class="sr-only">(current)</span></a>
+        </li>
+       <li>
+        <a class="nav-link" href="../index.php">LOGOUT<span class="sr-only">(current)</span></a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 <div class='container'>
-<h1>testing train</h1>
-<button type='button' class='btn btn-success' onclick='train_call()'>Click Me to train the untrained images</button>
+<button type='button' class='btn btn-success' onclick='train_call()' id = "dis" style = "margin-left:500px">Click me to train the model</button>
     <div class='col'>
-    <h2>Non Trained Data</h2>
+    <h2>Untrained Data</h2>
     <div id='nottrain'></div>
     </div>
-    
 
     <div class='col'>
     <h2>Trained Data</h2>
@@ -29,16 +50,18 @@
 </div>
 <script>
     function train_call(){
+        document.getElementById("dis").disabled = true;
         $.post('http://127.0.0.1:5001/train', {
             epoch: 5
         }, function(data){
             $('#result').html(data);
+            location.reload();
         })
-    }
 
+    }
     function get_images(type){
         $.post('get_images.php', {
-            train: type
+            train: type,
         }, function (data){
             if(type==1){
                 $('#train').html(data);
@@ -47,10 +70,16 @@
             }
         })
     }
-
     $(document).ready(function(){
         get_images(0);
         get_images(1);
+        $.ajax({
+            url: 'try_call.php',
+            success: function(data) {
+                if(data == 0)
+                document.getElementById("dis").style.display = "none";
+            }
+        });
     })
 </script>
 </body>

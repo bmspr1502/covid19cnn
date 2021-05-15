@@ -113,14 +113,17 @@ $(document).ready(function(){
         <li>
           <a class="nav-link" href="patient.php">PATIENT DETAILS<span class="sr-only">(current)</span></a>
         </li>
+        <li>
+        <a class="nav-link" href="train_request.php">TRAIN DATA<span class="sr-only">(current)</span></a>
+        </li>
        <li>
-        <a class="nav-link" href="#">Log Out<span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="#">LOGOUT<span class="sr-only">(current)</span></a>
         </li>
       </ul>
     </div>
   </nav>
   <div class="containerss">
-  <div id="result"></div>
+
   <form action="" id="addpatient" method="POST" enctype="multipart/form-data">
     <div class="row">
       <div class="col-25">
@@ -240,6 +243,7 @@ $(document).ready(function(){
      <div style="text-align:center" >
      <button type="submit" name='submit' id='submit' class="btn btn-danger">Submit</button>
     </div>
+    <div id="result"></div>
     </div>
 </div>
       

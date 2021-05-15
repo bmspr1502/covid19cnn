@@ -139,8 +139,12 @@
           <a class="nav-link active" href="patient.php">PATIENT DETAILS<span class="sr-only">(current)</span></a>
         </li>
         <li>
-        <a class="nav-link" href="#">Log Out<span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="train_request.php">TRAIN DATA<span class="sr-only">(current)</span></a>
         </li>
+        <li>
+        <a class="nav-link" href="../index.php">Log Out<span class="sr-only">(current)</span></a>
+        </li>
+        
       </ul>
     </div>
   </nav>
@@ -171,7 +175,7 @@
 
 </div>
 <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-  <div class="modal-dialog modal-xl" role="document">
+  <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLongTitle">UPDATE PATIENT</h5>
