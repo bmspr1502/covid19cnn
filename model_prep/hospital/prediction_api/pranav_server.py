@@ -4,7 +4,14 @@ import cv2
 #from database import search
 import numpy as np
 import tensorflow as tf
+import os
 from flask_cors import CORS, cross_origin
+
+def get_latestmodel():
+        directory = 'saved_model'
+        latest_subdir = max([os.path.join(directory,d) for d in os.listdir(directory)], key=os.path.getmtime)
+        model_dir = latest_subdir.replace("\\","/")
+        return model_dir
 
 img_size=224
 model = load_model('vgg16')
